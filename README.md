@@ -3,10 +3,10 @@ A simple way to 'remote' control a micro:bit from Python on a PC/Mac/Pi/Linux
 
 This was some work that I did in August 2015 when MicroPython was first ported to the micro:bit
 
-In it's current state it is now out of step with the MicroPython API, but the concept is sound.
+In it's current state it is now out of step with the MicroPython API, but the concept is sound and it could easily be developed into a working solution again.
 
 The way I did this was to create a microbit module that you import on the
-PC like this
+PC/mac/pi/linux like this
 
 import microbit
 
@@ -36,6 +36,40 @@ So, the micro:bit just becomes a sort of remote sensing device.
 
 Running this on the PC would scroll Hello World on the micro:bit display.
 
+
+TODO LIST
+----
+
 The micro:bit MicroPython API has changed quite a lot since I first wrote
 this, but if this is what you are talking about, I could upload the code to
 github and someone else could help me update it to the latest API :)
+
+It probably only works with python 2 at the moment and will need some love
+to make it python 3 compatible.
+
+
+
+
+CONTRIBUTIONS
+----
+
+Note that a version of pyserial is embedded inside this project, as allowed
+by the licence agreement from pyserial. This is so that you don't have to
+install any dependent packages. The microbit.py module can be configured
+to use the embedded pyserial or the installed one in the dist path by 
+changing a flag in the file.
+
+pyserial 2.7 (python licence) comes from here:
+
+https://github.com/pyserial/pyserial
+
+
+The anyio package is something I wrote to make it possible to use an Arduino 
+on PC/Mac/Linux to simulate the Raspberry Pi RPi.GPIO features, to allow
+GPIO projects to be written that work on any platform.
+
+anyio (MIT licence) comes from here:
+
+https://github.com/whaleygeek/anyio
+
+
